@@ -30,11 +30,21 @@
         .dark-gray{
             color: #323B49;
         }
+        .gray{
+            color: #64748B;
+        }
         .green{
             color: #10B981;
         }
         .red{
             color: #EF4444;
+        }
+        .bg-primary{
+            background: #3B82F6;
+        }
+        .active{
+            background: #3B82F6;
+            color: white;
         }
     </style>
     <!-- CSS -->
@@ -62,5 +72,55 @@
     </header>
 
     <hr class="my-6  border-[#E6E7E9] w-[80%] mx-auto">
+
+    <main class="w-[80%] mx-auto">
+        <div class="available-jobs-header sm:flex sm:items-center sm:justify-between pb-6">
+            <h3 class="text-xl font-semibold black capitalize">availaible jobs</h3>
+            <p class="text-[16px] font-medium gray">8 jobs</p>
+        </div>
+
+        <div class="filter-buttons pb-2.5">
+            <button id="all-filter-btn" class="bg-white px-3 py-2 rounded-sm text-[12px] font-medium text-[#64748B] capitalize border border-[#F1F2F4] mr-1.5 hover:bg-[#3B82F6] hover:text-white transition-all duration-300 active">all</button>
+            
+            <button id="interview-filter-btn" class="bg-white px-3 py-2 rounded-sm text-[12px] font-medium text-[#64748B] capitalize border border-[#F1F2F4] mr-1.5 hover:bg-[#3B82F6] hover:text-white transition-all duration-300">interview</button>
+            
+            <button id="rejected-filter-btn" class="bg-white px-3 py-2 rounded-sm text-[12px] font-medium text-[#64748B] capitalize border border-[#F1F2F4] hover:bg-[#3B82F6] hover:text-white transition-all duration-300">rejected</button>
+        </div>
+
+        <div class="available-jobs-card">
+            <div class="jobs-card p-6 bg-white flex justify-between">
+                <div class="jobs-content space-y-4">
+                    <div>
+                        <h4 class="company-name text-[18px]/[26px] font-semibold black capitalize">mobile first corp</h4>
+                        <p class="job-position text-[16px]/[22px] font-normal gray capitalize">react native developer</p>
+                    </div>
+
+                    <div>
+                        <ul class="job-details list-disc text-[14px]/[20px] font-normal gray flex gap-2 ">
+                            <li class="job-type list-none pr-3.5">Remote</li>
+                            <li class="job-time pr-3.5">Full-time</li>
+                            <li class="job-salary">$130,000 - $175,000</li>
+                        </ul>
+                        <!-- <p class="job-details text-[14px]/[20px] font-normal gray">Remote  •  Full-time  •   $130,000 - $175,000</p> -->
+                    </div>
+
+                    <div>
+                        <button class="status px-3 py-2 bg-[#EEF4FF] rounded-sm text-sm font-medium black uppercase ">not applied</button>
+                        <p class="notes text-sm font-normal dark-gray pt-1.5">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                    </div>
+
+                    <div>
+                        <button class="interview-btn px-3 py-2 bg-transparent border border-[#10B981] rounded-sm green text-sm font-semibold uppercase mr-1.5">interview</button>
+                        
+                        <button class="rejected-btn px-3 py-2 bg-transparent border border-[#EF4444] rounded-sm red text-sm font-semibold uppercase">rejected</button>
+                    </div>
+                </div>
+                
+                <div class="job-delete-btn">
+                    <button class="btn-delete text-[#64748B] p-1.5 border border-[#F1F2F4] rounded-full cursor-pointer hover:border-[#EF4444] hover:text-[#EF4444] transition-all duration-300"> <i class="fa-solid fa-trash"> </i> </button>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
