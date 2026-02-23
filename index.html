@@ -83,11 +83,11 @@
         </div>
 
         <div class="filter-buttons pb-2.5">
-            <button id="all-filter-btn" class="bg-white px-3 py-2 rounded-sm text-[12px] font-medium text-[#64748B] capitalize border border-[#F1F2F4] mr-1.5 hover:bg-[#3B82F6] hover:text-white transition-all duration-300 active">all</button>
+            <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn" class="bg-white px-3 py-2 rounded-sm text-[12px] font-medium text-[#64748B] capitalize border border-[#F1F2F4] mr-1.5 hover:bg-[#3B82F6] hover:text-white transition-all duration-300">all</button>
             
-            <button id="interview-filter-btn" class="bg-white px-3 py-2 rounded-sm text-[12px] font-medium text-[#64748B] capitalize border border-[#F1F2F4] mr-1.5 hover:bg-[#3B82F6] hover:text-white transition-all duration-300">interview</button>
+            <button onclick="toggleStyle('interview-filter-btn')" id="interview-filter-btn" class="bg-white px-3 py-2 rounded-sm text-[12px] font-medium text-[#64748B] capitalize border border-[#F1F2F4] mr-1.5 hover:bg-[#3B82F6] hover:text-white transition-all duration-300">interview</button>
             
-            <button id="rejected-filter-btn" class="bg-white px-3 py-2 rounded-sm text-[12px] font-medium text-[#64748B] capitalize border border-[#F1F2F4] hover:bg-[#3B82F6] hover:text-white transition-all duration-300">rejected</button>
+            <button onclick="toggleStyle('rejected-filter-btn')" id="rejected-filter-btn" class="bg-white px-3 py-2 rounded-sm text-[12px] font-medium text-[#64748B] capitalize border border-[#F1F2F4] hover:bg-[#3B82F6] hover:text-white transition-all duration-300">rejected</button>
         </div>
 
         <div id="all-cards" class="available-jobs-card">
