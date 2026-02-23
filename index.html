@@ -56,16 +56,19 @@
         <div class="app-tracker-grid grid grid-cols-1 md:grid-cols-3 gap-3.5">
             <div class="tracker-card p-5 bg-white border border-[#F1F2F4] rounded-lg">
                 <p class="text-[14px] font-medium dark-gray capitalize pb-2">total</p>
+                
                 <h2 id="total" class="text-2xl font-bold black">8</h2>
             </div>
             
             <div class="tracker-card p-5 bg-white border border-[#F1F2F4] rounded-lg">
                 <p class="text-[14px] font-medium dark-gray capitalize pb-2">interview</p>
+                
                 <h2 id="interview-count" class="text-2xl font-bold green">0</h2>
             </div>
             
             <div class="tracker-card p-5 bg-white border border-[#F1F2F4] rounded-lg">
                 <p class="text-[14px] font-medium dark-gray capitalize pb-2">rejected</p>
+                
                 <h2 id="rejected-count" class="text-2xl font-bold red">0</h2>
             </div>
         </div>
@@ -87,7 +90,7 @@
             <button id="rejected-filter-btn" class="bg-white px-3 py-2 rounded-sm text-[12px] font-medium text-[#64748B] capitalize border border-[#F1F2F4] hover:bg-[#3B82F6] hover:text-white transition-all duration-300">rejected</button>
         </div>
 
-        <div class="available-jobs-card">
+        <div id="all-cards" class="available-jobs-card">
             <div class="jobs-card p-6 bg-white flex justify-between">
                 <div class="jobs-content space-y-4">
                     <div>
@@ -122,5 +125,8 @@
             </div>
         </div>
     </main>
+
+
+    <script src="./js/script.js"></script>
 </body>
 </html>
