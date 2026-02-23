@@ -11,6 +11,7 @@ const rejectedFilterBtn = document.getElementById('rejected-filter-btn');
 
 const allCards = document.getElementById('all-cards');
 const mainContainer = document.querySelector('main');
+const filterDiv = document.getElementById('filtered-div');
 
 function calculateCount(){
     total.innerText = allCards.children.length;
@@ -32,4 +33,43 @@ function toggleStyle(id){
 
     selected.classList.remove('bg-white', 'text-[#64748B]');
     selected.classList.add('active');
+}
+
+mainContainer.addEventListener('click', function(event){
+    const parentNode = event.target.parentNode.parentNode;
+    const companyName = parentNode.querySelector('.company-name').innerText;
+    const jobPosition = parentNode.querySelector('.job-position').innerText;
+    const jobType = parentNode.querySelector('.job-type').innerText;
+    const jobTime = parentNode.querySelector('.job-time').innerText;
+    const jobSalary = parentNode.querySelector('.job-salary').innerText;
+    const status = parentNode.querySelector('.status').innerText;
+    const notes = parentNode.querySelector('.notes').innerText;
+
+    const cardInfo = {
+        companyName,
+        jobPosition,
+        jobType,
+        jobTime,
+        jobSalary,
+        status,
+        notes
+    }
+    
+    const companyExist = interviewList.find(item => item.companyName == cardInfo.companyName);
+
+    if(!companyExist){
+        interviewList.push(cardInfo)
+    }
+});
+
+function renderInterview(){
+    filterDiv.innerHTML = '';
+
+    for(let interview of interviewList){
+        let div = document.createElement('div');
+        div.className = 'jobs-card p-6 bg-white flex justify-between';
+        div.innerHTML = '
+            
+        '
+    }
 }

@@ -83,11 +83,16 @@
         </div>
 
         <div class="filter-buttons pb-2.5">
-            <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn" class="bg-white px-3 py-2 rounded-sm text-[12px] font-medium text-[#64748B] capitalize border border-[#F1F2F4] mr-1.5 hover:bg-[#3B82F6] hover:text-white transition-all duration-300">all</button>
+            <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn" class="bg-white px-3 py-2 rounded-sm text-[12px] font-medium text-[#64748B] capitalize border border-[#F1F2F4] mr-1.5 hover:bg-[#3B82F6] hover:text-white transition-all duration-300 active">all</button>
             
             <button onclick="toggleStyle('interview-filter-btn')" id="interview-filter-btn" class="bg-white px-3 py-2 rounded-sm text-[12px] font-medium text-[#64748B] capitalize border border-[#F1F2F4] mr-1.5 hover:bg-[#3B82F6] hover:text-white transition-all duration-300">interview</button>
             
             <button onclick="toggleStyle('rejected-filter-btn')" id="rejected-filter-btn" class="bg-white px-3 py-2 rounded-sm text-[12px] font-medium text-[#64748B] capitalize border border-[#F1F2F4] hover:bg-[#3B82F6] hover:text-white transition-all duration-300">rejected</button>
+        </div>
+
+        <!-- Filtered card -->
+        <div id="filtered-div">
+
         </div>
 
         <div id="all-cards" class="available-jobs-card">
@@ -99,7 +104,7 @@
                     </div>
 
                     <div>
-                        <ul class="job-details list-disc text-[14px]/[20px] font-normal gray flex gap-2 ">
+                        <ul class="list-disc text-[14px]/[20px] font-normal gray flex gap-2 ">
                             <li class="job-type list-none pr-3.5">Remote</li>
                             <li class="job-time pr-3.5">Full-time</li>
                             <li class="job-salary">$130,000 - $175,000</li>
