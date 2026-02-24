@@ -1,5 +1,6 @@
 let interviewList = [];
 let rejectedList = [];
+let currentStatus = 'all';
 
 let total = document.getElementById('total');
 let interviewCount = document.getElementById('interview-count');
@@ -30,6 +31,7 @@ function toggleStyle(id){
     rejectedFilterBtn.classList.add('bg-white', 'text-[#64748B]');
    
     const selected = document.getElementById(id);
+    currentStatus = id;
 
     selected.classList.remove('bg-white', 'text-[#64748B]');
     selected.classList.add('active');
@@ -37,6 +39,7 @@ function toggleStyle(id){
     if(id == 'interview-filter-btn'){
         allCards.classList.add('hidden');
         filterDiv.classList.remove('hidden');
+        renderInterview();
     }
     else if(id == 'all-filter-btn'){
         allCards.classList.remove('hidden');
@@ -45,6 +48,7 @@ function toggleStyle(id){
     else if(id == 'rejected-filter-btn'){
         allCards.classList.add('hidden');
         filterDiv.classList.remove('hidden');
+        renderRejected();
     }
 }
 
@@ -79,10 +83,13 @@ mainContainer.addEventListener('click', function(event){
             interviewList.push(cardInfo)
         }
 
-        
+        rejectedList = rejectedList.filter(item => item.companyName != cardInfo.companyName);
         calculateCount();
 
-        renderInterview()
+        if(currentStatus == 'rejected-filter-btn'){
+            renderRejected();
+        }
+
     }
     else if(event.target.classList.contains('rejected-btn')){
         const parentNode = event.target.parentNode.parentNode;
@@ -113,9 +120,13 @@ mainContainer.addEventListener('click', function(event){
             rejectedList.push(cardInfo)
         }
 
-        calculateCount();
+        interviewList = interviewList.filter(item => item.companyName != cardInfo.companyName);
 
-        renderRejected()
+        if(currentStatus == 'interview-filter-btn'){
+            renderInterview();
+        }
+
+        calculateCount();
     }
 });
 
