@@ -5,6 +5,7 @@ let currentStatus = 'all';
 let total = document.getElementById('total');
 let interviewCount = document.getElementById('interview-count');
 let rejectedCount = document.getElementById('rejected-count');
+let availableCount = document.getElementById('available-count');
 
 const allFilterBtn = document.getElementById('all-filter-btn');
 const interviewFilterBtn = document.getElementById('interview-filter-btn');
@@ -18,6 +19,8 @@ function calculateCount(){
     total.innerText = allCards.children.length;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectedList.length;
+    availableCount.innerText = allCards.children.length + " jobs";
+
 }
 calculateCount();
 
@@ -191,7 +194,18 @@ function renderInterview(){
     }
 
     if(interviewList.length === 0){
-        filterDiv.innerHTML = 
+        filterDiv.innerHTML = `
+            <div class="jobs-card p-6 bg-white">
+                <div class="jobs-content">
+                    <div class="text-center space-y-2">
+                        <img class="w-auto mx-auto" src="./images/jobs.png" alt="jobs">
+                        <h4 class=" text-[24px]/[32px] font-semibold black">No jobs available</h4>
+                        <p class=" text-[16px]/[22px] font-normal gray capitalize">Check back for new opportunities</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        return;
     }
 }
 
@@ -235,5 +249,20 @@ function renderRejected(){
         `
 
         filterDiv.appendChild(div)
+    }
+
+    if(interviewList.length === 0){
+        filterDiv.innerHTML = `
+            <div class="jobs-card p-6 bg-white">
+                <div class="jobs-content">
+                    <div class="text-center space-y-2">
+                        <img class="w-auto mx-auto" src="./images/jobs.png" alt="jobs">
+                        <h4 class=" text-[24px]/[32px] font-semibold black">No jobs available</h4>
+                        <p class=" text-[16px]/[22px] font-normal gray capitalize">Check back for new opportunities</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        return;
     }
 }
