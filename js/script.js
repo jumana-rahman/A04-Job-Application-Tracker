@@ -128,6 +128,24 @@ mainContainer.addEventListener('click', function(event){
 
         calculateCount();
     }
+    else if(event.target.closest('.btn-delete')){
+        const card = event.target.closest('.jobs-card');
+        const companyName = card.querySelector('.company-name').innerText;
+        
+        card.remove();
+
+        interviewList = interviewList.filter(item => item.companyName !== companyName);
+        rejectedList = rejectedList.filter(item => item.companyName !== companyName);
+
+        calculateCount();
+
+        if(currentStatus === 'interview-filter-btn'){
+            renderInterview();
+        }
+        if(currentStatus === 'rejected-filter-btn'){
+            renderRejected();
+        }
+    }
 });
 
 function renderInterview(){
@@ -170,6 +188,10 @@ function renderInterview(){
         `
 
         filterDiv.appendChild(div)
+    }
+
+    if(interviewList.length === 0){
+        filterDiv.innerHTML = 
     }
 }
 
