@@ -24,6 +24,22 @@ function calculateCount(){
 }
 calculateCount();
 
+function checkAllJobs(){
+    if(allCards.children.length === 0){
+                allCards.innerHTML = `
+                    <div class="jobs-card p-6 bg-white">
+                        <div class="jobs-content">
+                            <div class="text-center space-y-2">
+                                <img class="w-auto mx-auto" src="./images/jobs.png" alt="jobs">
+                                <h4 class=" text-[24px]/[32px] font-semibold black">No jobs available</h4>
+                                <p class=" text-[16px]/[22px] font-normal gray capitalize">Check back for new opportunities</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+    }
+}
+
 function toggleStyle(id){
     allFilterBtn.classList.remove('active');
     interviewFilterBtn.classList.remove('active');
@@ -42,15 +58,18 @@ function toggleStyle(id){
     if(id == 'interview-filter-btn'){
         allCards.classList.add('hidden');
         filterDiv.classList.remove('hidden');
+        availableCount.innerText = interviewList.length + " jobs";
         renderInterview();
     }
     else if(id == 'all-filter-btn'){
         allCards.classList.remove('hidden');
         filterDiv.classList.add('hidden');
+        availableCount.innerText = allCards.children.length + " jobs";
     }
     else if(id == 'rejected-filter-btn'){
         allCards.classList.add('hidden');
         filterDiv.classList.remove('hidden');
+        availableCount.innerText = rejectedList.length + " jobs";
         renderRejected();
     }
 }
@@ -67,7 +86,13 @@ mainContainer.addEventListener('click', function(event){
         const status = parentNode.querySelector('.status').innerText;
         const notes = parentNode.querySelector('.notes').innerText;
 
-        parentNode.querySelector('.status').innerText = 'Interview';
+
+        const statusBtn = parentNode.querySelector('.status');
+        statusBtn.innerText = 'Interview';
+
+        statusBtn.classList.remove('bg-[#EEF4FF]', 'black');
+        statusBtn.classList.add('bg-[#10B981]', 'text-white');
+
 
         const cardInfo = {
             companyName,
@@ -89,7 +114,7 @@ mainContainer.addEventListener('click', function(event){
         rejectedList = rejectedList.filter(item => item.companyName != cardInfo.companyName);
         calculateCount();
 
-        if(currentStatus == 'rejected-filter-btn'){
+        if(currentStatus === 'rejected-filter-btn'){
             renderRejected();
         }
 
@@ -104,7 +129,11 @@ mainContainer.addEventListener('click', function(event){
         const status = parentNode.querySelector('.status').innerText;
         const notes = parentNode.querySelector('.notes').innerText;
 
-        parentNode.querySelector('.status').innerText = 'Rejected';
+        const statusBtn = parentNode.querySelector('.status');
+        statusBtn.innerText = 'Rejected';
+
+        statusBtn.classList.remove('bg-[#EEF4FF]', 'black');
+        statusBtn.classList.add('bg-[#EF4444]', 'text-white');
 
         const cardInfo = {
             companyName,
@@ -116,7 +145,7 @@ mainContainer.addEventListener('click', function(event){
             notes
         }
         
-        const companyExist = interviewList.find(item => item.companyName == cardInfo.companyName);
+        const companyExist = rejectedList.find(item => item.companyName == cardInfo.companyName);
 
 
         if(!companyExist){
@@ -125,7 +154,7 @@ mainContainer.addEventListener('click', function(event){
 
         interviewList = interviewList.filter(item => item.companyName != cardInfo.companyName);
 
-        if(currentStatus == 'interview-filter-btn'){
+        if(currentStatus === 'interview-filter-btn'){
             renderInterview();
         }
 
@@ -148,6 +177,8 @@ mainContainer.addEventListener('click', function(event){
         if(currentStatus === 'rejected-filter-btn'){
             renderRejected();
         }
+
+        checkAllJobs();
     }
 });
 
@@ -251,7 +282,7 @@ function renderRejected(){
         filterDiv.appendChild(div)
     }
 
-    if(interviewList.length === 0){
+    if(rejectedList.length === 0){
         filterDiv.innerHTML = `
             <div class="jobs-card p-6 bg-white">
                 <div class="jobs-content">
