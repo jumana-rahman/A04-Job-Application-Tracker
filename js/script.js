@@ -113,8 +113,8 @@ mainContainer.addEventListener('click', function(event){
         const statusBtn = parentNode.querySelector('.status');
         statusBtn.innerText = 'Interview';
 
-        statusBtn.classList.remove('bg-[#EEF4FF]', 'black');
-        statusBtn.classList.add('bg-[#10B981]', 'text-white');
+        statusBtn.innerText = 'Interview';
+        statusBtn.className = `status px-3 py-2 rounded-sm text-sm font-medium uppercase ${getStatusClasses('Interview')}`;
 
 
         const cardInfo = {
@@ -155,8 +155,8 @@ mainContainer.addEventListener('click', function(event){
         const statusBtn = parentNode.querySelector('.status');
         statusBtn.innerText = 'Rejected';
 
-        statusBtn.classList.remove('bg-[#EEF4FF]', 'black');
-        statusBtn.classList.add('bg-[#EF4444]', 'text-white');
+        statusBtn.innerText = 'Rejected';
+        statusBtn.className = `status px-3 py-2 rounded-sm text-sm font-medium uppercase ${getStatusClasses('Rejected')}`;
 
         const cardInfo = {
             companyName,
