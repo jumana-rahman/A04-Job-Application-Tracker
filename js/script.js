@@ -16,11 +16,22 @@ const mainContainer = document.querySelector('main');
 const filterDiv = document.getElementById('filtered-div');
 
 function calculateCount(){
-    total.innerText = allCards.children.length;
+    const totalJobs = allCards.children.length;
+    total.innerText = totalJobs;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectedList.length;
-    availableCount.innerText = allCards.children.length + " jobs";
 
+    if(currentStatus === 'all-filter-btn'){
+        availableCount.innerText = totalJobs + " jobs";
+    }
+    else if(currentStatus === 'interview-filter-btn'){
+        const count = interviewList.length;
+        availableCount.innerText = count + " of " + totalJobs + " jobs";
+    }
+    else if(currentStatus === 'rejected-filter-btn'){
+        const count = rejectedList.length;
+        availableCount.innerText = count + " of " + totalJobs + " jobs";
+    }
 }
 calculateCount();
 
@@ -38,6 +49,16 @@ function checkAllJobs(){
                     </div>
                 `;
     }
+}
+
+function getStatusClasses(status){
+    if(status === 'Interview'){
+        return 'bg-[#10B981] text-white';
+    }
+    if(status === 'Rejected'){
+        return 'bg-[#EF4444] text-white';
+    }
+    return 'bg-[#EEF4FF] black'
 }
 
 function toggleStyle(id){
@@ -60,6 +81,7 @@ function toggleStyle(id){
         filterDiv.classList.remove('hidden');
         availableCount.innerText = interviewList.length + " jobs";
         renderInterview();
+        calculateCount();
     }
     else if(id == 'all-filter-btn'){
         allCards.classList.remove('hidden');
@@ -71,6 +93,7 @@ function toggleStyle(id){
         filterDiv.classList.remove('hidden');
         availableCount.innerText = rejectedList.length + " jobs";
         renderRejected();
+        calculateCount();
     }
 }
 
@@ -205,7 +228,7 @@ function renderInterview(){
                     </div>
 
                     <div>
-                        <button class="status px-3 py-2 bg-[#EEF4FF] rounded-sm text-sm font-medium black uppercase ">${interview.status}</button>
+                        <button class="status px-3 py-2 rounded-sm text-sm font-medium uppercase ${getStatusClasses(interview.status)}">${interview.status}</button>
                         <p class="notes text-sm font-normal dark-gray pt-1.5">${interview.notes}</p>
                     </div>
 
@@ -263,7 +286,7 @@ function renderRejected(){
                     </div>
 
                     <div>
-                        <button class="status px-3 py-2 bg-[#EEF4FF] rounded-sm text-sm font-medium black uppercase ">${rejected.status}</button>
+                        <button class="status px-3 py-2 rounded-sm text-sm font-medium uppercase ${getStatusClasses(rejected.status)}">${rejected.status}</button>
                         <p class="notes text-sm font-normal dark-gray pt-1.5">${rejected.notes}</p>
                     </div>
 
