@@ -44,16 +44,13 @@ A web-based application designed to help users track and manage their job applic
 
 ```bash
 # 1. Clone the repository
-git clone YOUR_REPOSITORY_LINK
+git clone https://github.com/jumana-rahman/A04-Job-Application-Tracker.git
 
 # 2. Navigate to the project folder
 cd job-application-tracker
 
-# 3. Install dependencies (if React or npm project)
-npm install
-
-# 4. Start the development server
-npm run dev
+# 3. Open the project
+Open index.html in your browser 
 
 ```
 
