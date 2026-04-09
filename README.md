@@ -1,3 +1,64 @@
+<h1 align="center">📋 Job Application Tracker</h1>
+
+<p align="center">
+A web-based application designed to help users track and manage their job applications in one place. It allows users to organize applied jobs, monitor application status, and keep records efficiently.
+</p>
+
+---
+
+<p align="center">
+  <img src="/images/Screenshot_86.jpg" alt="Job Application Tracker Screenshot" width="100%" />
+</p>
+
+---
+
+<h2>🔗 Live Demo</h2>
+
+- 🌐 Live Website: <a href="https://jumana-rahman.github.io/A04-Job-Application-Tracker/" target="_blank">View Project</a>
+
+---
+
+<h2>🛠️ Tech Stack</h2>
+
+- HTML5  
+- Tailwind CSS  
+- JavaScript 
+
+---
+
+<h2>✨ Features</h2>
+ 
+- 📊 Track application status (Applied, Interview, Rejected, etc.)  
+- 🗂️ Organize and view all applications in one place     
+- 📱 Responsive design for all devices  
+
+---
+
+<h2>📦 Dependencies</h2>
+ 
+- Tailwind CSS (if used for styling)   
+
+---
+
+<h2>⚙️ How to Run Locally</h2>
+
+```bash
+# 1. Clone the repository
+git clone YOUR_REPOSITORY_LINK
+
+# 2. Navigate to the project folder
+cd job-application-tracker
+
+# 3. Install dependencies (if React or npm project)
+npm install
+
+# 4. Start the development server
+npm run dev
+
+---
+
+<h2>FAQs</h2>
+
 ### 1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
 * getElementById: Selects one element using it's id and returns a single element.
 * getElementsByClassName: Select all elements with a certain class and returns HTML Collections.
